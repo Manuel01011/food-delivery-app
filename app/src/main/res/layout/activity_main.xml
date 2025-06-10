@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/backgroundColor"
+    android:padding="32dp">
+
+    <EditText
+        android:id="@+id/etUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Usuario"
+        android:backgroundTint="@color/primaryColor"
+        android:textColor="@color/textColor"
+        android:textColorHint="@color/textColor"
+        android:drawableStart="@android:drawable/ic_menu_myplaces"
+        android:padding="12dp" />
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
+        android:backgroundTint="@color/primaryColor"
+        android:textColor="@color/textColor"
+        android:textColorHint="@color/textColor"
+        android:drawableStart="@android:drawable/ic_lock_idle_lock"
+        android:layout_marginTop="16dp"
+        android:padding="12dp" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Iniciar Sesión"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/primaryColor"
+        android:layout_marginTop="24dp"
+        android:padding="12dp" />
+</LinearLayout>

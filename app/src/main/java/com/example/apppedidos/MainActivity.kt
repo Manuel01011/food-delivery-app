@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.apppedidos.frontend.activities.menu.MenuActivity
 import com.example.apppedidos.frontend.activities.repartidor.RepartidorListActivity
 
 class MainActivity : AppCompatActivity() {
@@ -17,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         val loginButton = findViewById<Button>(R.id.btnLogin)
         loginButton.setOnClickListener {
             // Aquí iría la lógica de autenticación. Por ahora pasa directo.
-            val intent = Intent(this, RepartidorListActivity::class.java)
+            val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
            // finish()
         }

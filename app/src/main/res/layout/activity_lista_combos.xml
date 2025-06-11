@@ -1,15 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <!-- Puedes agregar variables aquí si usas DataBinding -->
+        <!-- Variables si usas DataBinding -->
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".frontend.activities.cliente.ListaClientesActivity">
+        tools:context=".frontend.activities.cliente.ListaCombosActivity">
 
         <!-- AppBar con Toolbar -->
         <com.google.android.material.appbar.AppBarLayout
@@ -22,23 +23,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
-                app:title="Lista de Clientes"
+                app:title="Combos"
                 app:titleTextColor="@android:color/white" />
         </com.google.android.material.appbar.AppBarLayout>
 
-        <!-- RecyclerView -->
+        <!-- RecyclerView para combos -->
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvClientes"
+            android:id="@+id/recyclerCombos"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="70dp"
             android:padding="8dp"
             android:clipToPadding="false"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_combo" />
 
-        <!-- Botón flotante para agregar -->
+        <!-- Botón flotante para agregar nuevo combo -->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabAdd"
+            android:id="@+id/fabAddCombo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
@@ -58,7 +60,7 @@
             android:backgroundTint="@color/red"
             android:textColor="@android:color/white" />
 
-        <!-- Carga mientras espera datos -->
+        <!-- Indicador de carga -->
         <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyleLarge"

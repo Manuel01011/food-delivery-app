@@ -10,22 +10,46 @@
     android:background="@color/backgroundColor"
     android:padding="32dp">
 
+    <!-- Título de la app -->
+    <TextView
+        android:id="@+id/tvAppTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CletaEats"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/primaryColor"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Logo -->
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/logo2"
+        android:layout_marginBottom="32dp"
+        android:contentDescription="Logo de la app" />
+
+    <!-- Usuario -->
     <EditText
-        android:id="@+id/etUsername"
+        android:id="@+id/etCedula"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Usuario"
+        android:textStyle="bold"
         android:backgroundTint="@color/primaryColor"
         android:textColor="@color/textColor"
         android:textColorHint="@color/textColor"
         android:drawableStart="@android:drawable/ic_menu_myplaces"
         android:padding="12dp" />
 
+    <!-- Contraseña -->
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Contraseña"
+        android:textStyle="bold"
         android:inputType="textPassword"
         android:backgroundTint="@color/primaryColor"
         android:textColor="@color/textColor"
@@ -34,11 +58,13 @@
         android:layout_marginTop="16dp"
         android:padding="12dp" />
 
+    <!-- Botón -->
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Iniciar Sesión"
+        android:textStyle="bold"
         android:textColor="@android:color/white"
         android:backgroundTint="@color/primaryColor"
         android:layout_marginTop="24dp"

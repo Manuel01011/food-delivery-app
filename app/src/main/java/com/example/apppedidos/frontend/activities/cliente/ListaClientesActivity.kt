@@ -1,12 +1,16 @@
 package com.example.apppedidos.frontend.activities.cliente
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apppedidos.R
+import com.example.apppedidos.databinding.ActivityListaClientesBinding
+import com.example.apppedidos.frontend.activities.menu.MenuActivity
 import com.example.apppedidos.frontend.adapters.ClientesAdapter
 import com.example.apppedidos.frontend.api.ApiClient
 import kotlinx.coroutines.CoroutineScope
@@ -18,6 +22,8 @@ class ListaClientesActivity : AppCompatActivity() {
 
     private lateinit var rvClientes: RecyclerView
     private lateinit var adapter: ClientesAdapter
+    private lateinit var botonSalir: Button
+    private lateinit var binding: ActivityListaClientesBinding
 
     companion object {
         private const val TAG = "ListaClientesActivity"
@@ -25,14 +31,22 @@ class ListaClientesActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_lista_clientes)
+        binding = ActivityListaClientesBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         Log.d(TAG, "onCreate: Iniciando actividad")
 
         rvClientes = findViewById(R.id.rvClientes)
+        botonSalir = findViewById(R.id.btnSalir)
         rvClientes.layoutManager = LinearLayoutManager(this)
 
+        onResume()
         cargarClientes()
+        setupListeners()
+
+        botonSalir.setOnClickListener {
+            startActivity(Intent(this, MenuActivity::class.java))
+        }
     }
 
     private fun cargarClientes() {
@@ -72,6 +86,17 @@ class ListaClientesActivity : AppCompatActivity() {
                     Toast.makeText(this@ListaClientesActivity, "Error: ${e.message}", Toast.LENGTH_LONG).show()
                 }
             }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        cargarClientes()
+    }
+
+    private fun setupListeners() {
+        binding.fabAdd.setOnClickListener {
+            startActivity(Intent(this, RegistroClienteActivity::class.java))
         }
     }
 }

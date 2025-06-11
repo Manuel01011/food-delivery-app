@@ -32,6 +32,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Repartidores"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="@android:color/holo_green_light" />
+
+    <Button
+        android:id="@+id/btnRestaurantes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Restaurantes"
+        android:backgroundTint="@color/accentColor" />
+
+    <Button
+        android:id="@+id/btnSalir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:text="Salir"
+        android:backgroundTint="@color/red"
+        android:textColor="@android:color/white" />
 
 </LinearLayout>

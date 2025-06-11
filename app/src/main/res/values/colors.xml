@@ -8,4 +8,6 @@
     <color name="backgroundColor">#FAFAFA</color>
     <color name="textColor">#212121</color>
     <color name="purple_500">#9C27B0</color>
+    <color name="red">#B02727</color>
+
 </resources>

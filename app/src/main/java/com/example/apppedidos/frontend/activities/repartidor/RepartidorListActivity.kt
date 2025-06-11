@@ -2,11 +2,13 @@ package com.example.apppedidos.frontend.activities.repartidor
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.apppedidos.R
 import com.example.apppedidos.frontend.adapters.RepartidorAdapter
 import com.example.apppedidos.frontend.api.ApiClient
 import com.example.apppedidos.frontend.models.Repartidor
@@ -15,6 +17,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import com.example.apppedidos.databinding.ActivityRepartidorListBinding
+import com.example.apppedidos.frontend.activities.menu.MenuActivity
 
 
 class RepartidorListActivity : AppCompatActivity() {
@@ -32,13 +35,20 @@ class RepartidorListActivity : AppCompatActivity() {
         loadRepartidores()
         onResume()
         setupListeners()
+
+        binding.btnSalir.setOnClickListener {
+            startActivity(Intent(this, MenuActivity::class.java))
+        }
     }
+
+
 
     private fun setupToolbar() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = "Lista de Repartidores"
     }
+
 
     private fun setupRecyclerView() {
         adapter = RepartidorAdapter(repartidores) { repartidor ->
@@ -88,7 +98,7 @@ class RepartidorListActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        loadRepartidores() // Esto actualizará la lista al volver a esta actividad
+        loadRepartidores()
     }
 
     private fun showRepartidorDetails(repartidor: Repartidor) {

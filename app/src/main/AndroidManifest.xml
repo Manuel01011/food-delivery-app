@@ -35,12 +35,20 @@
         <activity android:name="com.example.apppedidos.frontend.activities.cliente.RegistroClienteActivity"
             android:theme="@style/Base.Theme.AppPedido"/>
 
-        <activity android:name=".frontend.activities.cliente.ListaClientesActivity" />
+        <activity android:name=".frontend.activities.cliente.ListaClientesActivity"
+            android:theme="@style/Base.Theme.AppPedido"/>
 
         <activity android:name="com.example.apppedidos.frontend.activities.menu.MenuActivity"
             android:theme="@style/Base.Theme.AppPedido"/>
 
+        <activity android:name="com.example.apppedidos.frontend.activities.restaurante.ListaRestaurantesActivity"
+            android:theme="@style/Base.Theme.AppPedido"/>
 
+        <activity android:name="com.example.apppedidos.frontend.activities.restaurante.ListaCombosActivity"
+            android:theme="@style/Base.Theme.AppPedido"/>
+
+        <activity android:name="com.example.apppedidos.frontend.activities.restaurante.RegistroRestauranteActivity"
+            android:theme="@style/Base.Theme.AppPedido"/>
 
     </application>
     <uses-permission android:name="android.permission.INTERNET" />

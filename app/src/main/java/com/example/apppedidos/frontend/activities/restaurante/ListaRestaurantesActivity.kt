@@ -1,0 +1,47 @@
+package com.example.apppedidos.frontend.activities.restaurante
+
+import android.content.Intent
+import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.apppedidos.R
+import com.example.apppedidos.frontend.adapters.RestauranteAdapter
+import com.example.apppedidos.frontend.api.ApiClient
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.Dispatchers
+
+
+class ListaRestaurantesActivity : AppCompatActivity() {
+    private lateinit var recycler: RecyclerView
+    private lateinit var adapter: RestauranteAdapter
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_lista_restaurantes)
+
+        recycler = findViewById(R.id.recyclerRestaurantes)
+        recycler.layoutManager = LinearLayoutManager(this)
+
+        GlobalScope.launch(Dispatchers.Main) {
+            try {
+                val response = ApiClient.instance.obtenerRestaurantes()
+                if (response.isSuccessful) {
+                    val restaurantes = response.body()?.restaurantes ?: emptyList()
+                    adapter = RestauranteAdapter(restaurantes) {
+                        val intent = Intent(this@ListaRestaurantesActivity, ListaCombosActivity::class.java)
+                        intent.putExtra("id_restaurante", it.id_restaurante)
+                        startActivity(intent)
+                    }
+                    recycler.adapter = adapter
+                } else {
+                    Toast.makeText(this@ListaRestaurantesActivity, "Error: ${response.code()}", Toast.LENGTH_SHORT).show()
+                }
+            } catch (e: Exception) {
+                Toast.makeText(this@ListaRestaurantesActivity, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+}

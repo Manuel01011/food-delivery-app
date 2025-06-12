@@ -13,63 +13,81 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:padding="16dp"
-        android:orientation="vertical">
+        android:gravity="center_vertical">
 
-        <!-- Encabezado con nombre y flecha -->
+        <!-- Contenedor de textos -->
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:weightSum="1">
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tvNombreRestaurante"
-                android:text="Nombre Restaurante"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_width="0dp"
+            <!-- Encabezado con nombre y flecha -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.9" />
-        </LinearLayout>
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:weightSum="1">
 
-        <TextView
-            android:id="@+id/tvDireccionRestaurante"
-            android:text="Dirección"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:textColor="?android:textColorSecondary" />
-
-        <TextView
-            android:id="@+id/tvTipoComida"
-            android:text="Tipo de comida"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:textColor="?android:textColorSecondary" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="6dp"
-            android:gravity="center_vertical">
+                <TextView
+                    android:id="@+id/tvNombreRestaurante"
+                    android:text="Nombre Restaurante"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.9" />
+            </LinearLayout>
 
             <TextView
-                android:text="    Click para ver el menú    "
+                android:id="@+id/tvDireccionRestaurante"
+                android:text="Dirección"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_estado"
-                android:textSize="12sp"
-                android:textColor="@color/backgroundColor" />
+                android:layout_marginTop="4dp"
+                android:textColor="?android:textColorSecondary" />
 
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginStart="8dp"
-                android:src="@drawable/baseline_ads_click_24" />
+            <TextView
+                android:id="@+id/tvTipoComida"
+                android:text="Tipo de comida"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textColor="?android:textColorSecondary" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:text="    Click para ver el menú    "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_estado"
+                    android:textSize="12sp"
+                    android:textColor="@color/backgroundColor" />
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="8dp"
+                    android:src="@drawable/baseline_ads_click_24" />
+            </LinearLayout>
         </LinearLayout>
+
+        <!-- Imagen a la derecha -->
+        <ImageView
+            android:id="@+id/imgRestaurante"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/restaurante"
+            android:scaleType="centerCrop" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

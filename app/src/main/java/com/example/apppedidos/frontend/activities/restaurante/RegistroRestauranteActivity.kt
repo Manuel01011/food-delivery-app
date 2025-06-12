@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.apppedidos.R
 import com.example.apppedidos.frontend.api.ApiClient
 import com.example.apppedidos.frontend.models.Restaurante
+import com.example.apppedidos.frontend.models.RestauranteRequest
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -31,7 +32,14 @@ class RegistroRestauranteActivity : AppCompatActivity() {
         btnGuardar = findViewById(R.id.btnGuardarRestaurante)
 
         btnGuardar.setOnClickListener {
-            val restaurante = Restaurante(
+            if (nombreInput.text.isBlank() || cedulaInput.text.isBlank() ||
+                direccionInput.text.isBlank() || tipoComidaInput.text.isBlank()
+            ) {
+                Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val restaurante = RestauranteRequest(
                 nombre = nombreInput.text.toString(),
                 cedula_juridica = cedulaInput.text.toString(),
                 direccion = direccionInput.text.toString(),
@@ -45,7 +53,8 @@ class RegistroRestauranteActivity : AppCompatActivity() {
                         Toast.makeText(this@RegistroRestauranteActivity, "Registrado exitosamente", Toast.LENGTH_SHORT).show()
                         finish()
                     } else {
-                        Toast.makeText(this@RegistroRestauranteActivity, "Error al registrar", Toast.LENGTH_SHORT).show()
+                        val errorBody = response.errorBody()?.string()
+                        Toast.makeText(this@RegistroRestauranteActivity, "Error: $errorBody", Toast.LENGTH_LONG).show()
                     }
                 }
             }

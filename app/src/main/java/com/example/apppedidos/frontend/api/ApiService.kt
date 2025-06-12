@@ -1,8 +1,10 @@
 package com.example.apppedidos.frontend.api
 import com.example.apppedidos.frontend.activities.repartidor.RepartidorRegistroRequest
 import com.example.apppedidos.frontend.models.ClientesResponse
+import com.example.apppedidos.frontend.models.ComboRequest
 import com.example.apppedidos.frontend.models.Repartidor
 import com.example.apppedidos.frontend.models.Restaurante
+import com.example.apppedidos.frontend.models.RestauranteRequest
 import com.example.apppedidos.frontend.models.RestaurantesResponse
 import com.example.apppedidos.frontend.models.Usuario
 import retrofit2.http.Body
@@ -42,9 +44,12 @@ interface ApiService {
     suspend fun obtenerRestaurantes(): Response<RestaurantesResponse>
 
     @POST("api/restaurantes")
-    suspend fun registrarRestaurante(@Body restaurante: Restaurante): Response<Map<String, Any>>
+    suspend fun registrarRestaurante(@Body restaurante: RestauranteRequest): Response<Map<String, Any>>
 
     @GET("api/restaurantes/{id}/combos")
     suspend fun obtenerCombos(@Path("id") idRestaurante: Int): Response<Map<String, Any>>
+
+    @POST("api/restaurantes/{id}/combos")
+    suspend fun registrarCombo(@Path("id") idRestaurante: Int, @Body combo: ComboRequest): Response<Map<String, Any>>
 }
 

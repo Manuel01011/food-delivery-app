@@ -50,6 +50,8 @@
         <activity android:name="com.example.apppedidos.frontend.activities.restaurante.RegistroRestauranteActivity"
             android:theme="@style/Base.Theme.AppPedido"/>
 
+        <activity android:name=".frontend.activities.restaurante.RegistrarComboActivity"
+            android:theme="@style/Base.Theme.AppPedido"/>
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

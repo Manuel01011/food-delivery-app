@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:padding="24dp"
     android:background="#FAFAFA"
-    tools:context=".frontend.activities.MenuActivity">
+    tools:context=".frontend.activities.menu.MenuActivity">
 
     <TextView
         android:id="@+id/tvMenuTitle"

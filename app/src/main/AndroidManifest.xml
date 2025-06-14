@@ -52,6 +52,23 @@
 
         <activity android:name=".frontend.activities.restaurante.RegistrarComboActivity"
             android:theme="@style/Base.Theme.AppPedido"/>
+
+        <activity android:name="com.example.apppedidos.frontend.activities.rol_cliente.ListaRestaurantesCliente"
+            android:theme="@style/Base.Theme.AppPedido"/>
+
+        <activity android:name="com.example.apppedidos.frontend.activities.menu.MenuCliente"/>
+
+        <activity android:name="com.example.apppedidos.frontend.activities.rol_cliente.ListaCombosCliente"/>
+
+        <activity android:name="com.example.apppedidos.frontend.activities.rol_cliente.CarritoActivity"/>
+
+        <activity android:name="com.example.apppedidos.frontend.activities.rol_cliente.CalificarPedidoActivity"/>
+
+        <activity android:name="com.example.apppedidos.frontend.activities.rol_cliente.DetallePedidoActivity"/>
+
+        <activity android:name="com.example.apppedidos.frontend.activities.rol_cliente.ListapedidosCliente"/>
+
+
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutMenu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="#FAFAFA"
+    tools:context=".frontend.activities.menu.MenuCliente">
+
+
+
+
+    <!-- Título centrado -->
+    <TextView
+        android:id="@+id/tvMenuTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Menú Principal"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="146dp" />
+
+    <TextView
+        android:id="@+id/tvHistorial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pedidos"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:layout_below="@id/btnHistorial"
+        android:layout_alignEnd="@id/btnHistorial"
+        android:layout_marginTop="4dp" />
+
+    <Button
+        android:id="@+id/btnHistorial"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:text="Historial"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:background="@android:color/transparent"
+        android:drawableLeft="@drawable/historial64"
+        android:drawablePadding="8dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp" />
+
+    <!-- Botón Ordenar -->
+    <Button
+        android:id="@+id/btnRestaurantes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ordenar"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:backgroundTint="@color/accentColor"
+        android:drawableLeft="@drawable/express"
+        android:paddingLeft="16dp"
+        android:drawablePadding="8dp"
+        android:layout_below="@id/tvMenuTitle"
+        android:layout_marginTop="14dp" />
+
+    <!-- Botón Salir -->
+    <Button
+        android:id="@+id/salir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:text="Salir"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:drawableTop="@drawable/salir"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="32dp" />
+
+</RelativeLayout>

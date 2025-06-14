@@ -2,17 +2,20 @@ package com.example.apppedidos.frontend.api
 import com.example.apppedidos.frontend.activities.repartidor.RepartidorRegistroRequest
 import com.example.apppedidos.frontend.models.ClientesResponse
 import com.example.apppedidos.frontend.models.ComboRequest
+import com.example.apppedidos.frontend.models.PedidoRequest
 import com.example.apppedidos.frontend.models.Repartidor
 import com.example.apppedidos.frontend.models.Restaurante
 import com.example.apppedidos.frontend.models.RestauranteRequest
 import com.example.apppedidos.frontend.models.RestaurantesResponse
 import com.example.apppedidos.frontend.models.Usuario
+import com.example.apppedidos.frontend.models.UsuarioLogin
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.Response
 import retrofit2.http.Path
 import retrofit2.Call
+import retrofit2.http.Query
 
 interface ApiService {
 
@@ -37,7 +40,7 @@ interface ApiService {
     suspend fun obtenerClientes(): Response<ClientesResponse>
 
     @GET("api/usuarios/{cedula}")
-    suspend fun verificarUsuario(@Path("cedula") cedula: String): Response<Usuario>
+    suspend fun verificarUsuario(@Path("cedula") cedula: String): Response<UsuarioLogin>
 
     // Metodos de restaurante
     @GET("api/Restaurantes")
@@ -51,5 +54,16 @@ interface ApiService {
 
     @POST("api/restaurantes/{id}/combos")
     suspend fun registrarCombo(@Path("id") idRestaurante: Int, @Body combo: ComboRequest): Response<Map<String, Any>>
+
+    // Métodos de pedidos
+    @POST("api/pedidos/completo")   suspend fun crearPedidoCompleto(@Body request: PedidoRequest): Response<Map<String, Any>>
+
+    @GET("pedidos/{id_pedido}/detalle") suspend fun obtenerDetallePedido(@Path("id_pedido") idPedido: Int, @Query("cliente") idCliente: Int): Response<Map<String, Any>>
+
+    @POST("pedidos/calificar") suspend fun calificarPedido(@Body request: Map<String, Any>): Response<Map<String, Any>>
+
+    //metodos de clientes
+    @GET("api/clientes/{id}/pedidos-completos") suspend fun listarPedidosCliente(@Path("id") idCliente: Int, @Query("estado") estado: String? = null): Response<Map<String, Any>>
 }
+
 

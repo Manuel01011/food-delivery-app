@@ -1,48 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp">
+    android:layout_margin="12dp"
+    card_view:cardCornerRadius="12dp"
+    card_view:cardElevation="6dp"
+    card_view:cardBackgroundColor="?attr/colorSurface">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="20dp">
 
+        <!-- Nombre del Restaurante -->
         <TextView
             android:id="@+id/tvRestaurante"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:text="Nombre del Restaurante"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
+        <!-- Fecha del Pedido -->
         <TextView
             android:id="@+id/tvFecha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"/>
+            android:text="Fecha del pedido: 2025-06-14"
+            android:layout_marginTop="8dp"
+            android:textColor="?android:textColor"
+            android:textSize="14sp" />
 
+        <!-- Estado del Pedido -->
         <TextView
             android:id="@+id/tvEstado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"/>
+            android:text="Estado: Entregado"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/primaryDarkColor"
+            android:textStyle="bold"
+            android:textSize="14sp" />
 
+        <!-- Total del Pedido -->
         <TextView
             android:id="@+id/tvTotal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"/>
+            android:text="Total: ₡12,000"
+            android:layout_marginTop="4dp"
+            android:textColor="?android:textColor"
+            android:textSize="14sp" />
 
+        <!-- Botón de Calificación -->
         <Button
             android:id="@+id/btnCalificar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
             android:text="Calificar Pedido"
-            android:visibility="gone"/>
+            android:textColor="@android:color/white"
+            android:backgroundTint="?attr/colorSecondary"
+            android:visibility="gone"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:fontFamily="sans-serif-medium" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

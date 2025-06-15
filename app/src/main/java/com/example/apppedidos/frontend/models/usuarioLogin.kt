@@ -5,5 +5,6 @@ data class UsuarioLogin(
     val cedula: String,
     val nombre: String,
     val tipo: String,
-    val estado: String
+    val estado: String,
+    val origen: String
 )

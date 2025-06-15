@@ -13,7 +13,7 @@ class DetallePedidoAdapter(private val detalles: List<Map<String, Any>>) :
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val nombre: TextView = view.findViewById(R.id.tvNombreCombo)
         val cantidad: TextView = view.findViewById(R.id.tvCantidad)
-        val precio: TextView = view.findViewById(R.id.tvPrecio)
+        val precio: TextView = view.findViewById(R.id.tvPrecioUnitario)
         val subtotal: TextView = view.findViewById(R.id.tvSubtotal)
     }
 

@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">AppPedidos</string>
+    <string name="pedido_numero">Pedido #%d</string>
+    <string name="total_format">Total: ₡%.2f</string>
+    <string name="items_format">%d items</string>
+    <string name="preparar_pedido">en_camino</string>
+    <string name="estado_actualizado">Estado del pedido actualizado</string>
+    <string name="error_actualizar_estado">Error al actualizar estado: %s</string>
+    <string name="error_conexion">Error de conexión: %s</string>
+    <string name="no_pedidos_pendientes">No hay pedidos pendientes</string>
+
 </resources>
+

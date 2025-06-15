@@ -1,19 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:visibility="gone"/>
+    <data>
+        <!-- Puedes declarar variables para DataBinding aquí si lo necesitas -->
+    </data>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewPedidos"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        tools:context=".frontend.activities.cliente.ListaPedidosActivity"
+        android:background="?android:windowBackground">
 
-</RelativeLayout>
+        <!-- AppBar con Toolbar -->
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:title="Mis Pedidos"
+                app:titleTextColor="@android:color/white"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <!-- RecyclerView para mostrar la lista de pedidos -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewPedidos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="?attr/actionBarSize"
+            android:padding="8dp"
+            android:clipToPadding="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            />
+
+
+        <!-- Indicador de carga estilo Material -->
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progressBar"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            app:indicatorSize="48dp"
+            app:trackThickness="4dp"
+            app:indicatorColor="?attr/colorPrimary"
+            app:trackColor="@android:color/darker_gray" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

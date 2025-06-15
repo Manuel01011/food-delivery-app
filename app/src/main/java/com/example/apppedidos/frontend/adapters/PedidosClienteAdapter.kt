@@ -1,21 +1,27 @@
 package com.example.apppedidos.frontend.adapters
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.apppedidos.MainActivity
 import com.example.apppedidos.R
+import com.example.apppedidos.frontend.activities.rol_cliente.CalificarPedidoActivity
 import com.example.apppedidos.frontend.models.PedidoCliente
 
-class PedidosClienteAdapter(private val pedidos: List<PedidoCliente>) :
-    RecyclerView.Adapter<PedidosClienteAdapter.PedidoViewHolder>() {
+class PedidosClienteAdapter(
+    private val pedidos: List<PedidoCliente>,
+    private val idCliente: Int
+) : RecyclerView.Adapter<PedidosClienteAdapter.PedidoViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PedidoViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_pedido_cliente, parent, false)
-        return PedidoViewHolder(view)
+        return PedidoViewHolder(view, idCliente)
     }
 
     override fun onBindViewHolder(holder: PedidoViewHolder, position: Int) {
@@ -25,7 +31,11 @@ class PedidosClienteAdapter(private val pedidos: List<PedidoCliente>) :
 
     override fun getItemCount() = pedidos.size
 
-    class PedidoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class PedidoViewHolder(
+        itemView: View,
+        private val idCliente: Int // Recibe el idCliente como parámetro
+    ) : RecyclerView.ViewHolder(itemView) {
+
         fun bind(pedido: PedidoCliente) {
             itemView.apply {
                 findViewById<TextView>(R.id.tvRestaurante).text = pedido.restaurante
@@ -33,12 +43,16 @@ class PedidosClienteAdapter(private val pedidos: List<PedidoCliente>) :
                 findViewById<TextView>(R.id.tvEstado).text = pedido.estado
                 findViewById<TextView>(R.id.tvTotal).text = "Total: ${pedido.total}"
 
-                // Configurar botón de calificar si el pedido está entregado y no calificado
                 val btnCalificar = findViewById<Button>(R.id.btnCalificar)
                 if (pedido.estado == "entregado" && !pedido.calificado) {
                     btnCalificar.visibility = View.VISIBLE
                     btnCalificar.setOnClickListener {
-                        // Implementar lógica para calificar
+                        val context = itemView.context
+                        val intent = Intent(context, CalificarPedidoActivity::class.java).apply {
+                            putExtra("id_pedido", pedido.id_pedido)
+                            putExtra("id_cliente", idCliente) // Usa el idCliente recibido
+                        }
+                        context.startActivity(intent)
                     }
                 } else {
                     btnCalificar.visibility = View.GONE

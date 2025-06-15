@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?android:windowBackground"
+    android:padding="12dp">
+
+    <!-- Título con nombre del restaurante -->
+    <TextView
+        android:id="@+id/tvTituloPedidos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pedidos de"
+        android:textSize="20sp"
+        android:layout_marginTop="25dp"
+        android:textStyle="bold"
+        android:textColor="?android:textColorPrimary"
+        android:gravity="center"
+        android:paddingBottom="8dp" />
+
+    <!-- Indicador de carga estilo Material -->
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/progressBar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        app:indicatorSize="48dp"
+        app:trackThickness="4dp"
+        app:indicatorColor="?attr/colorPrimary"
+        app:trackColor="@android:color/darker_gray"
+        android:visibility="gone" />
+
+    <!-- RecyclerView con pedidos -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewPedidos"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="gone"
+        android:clipToPadding="false"
+        android:scrollbars="vertical"
+        android:paddingBottom="8dp" />
+
+    <!-- Estado vacío -->
+    <LinearLayout
+        android:id="@+id/emptyStateView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone"
+        android:padding="24dp">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/cajaa"
+            android:contentDescription="@string/no_pedidos_pendientes"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/tvEmptyMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:text="@string/no_pedidos_pendientes"
+            android:textColor="?android:textColorPrimary" />
+    </LinearLayout>
+
+    <!-- Botón de salir con ícono -->
+    <Button
+        android:id="@+id/salir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Salir"
+        android:drawableStart="@drawable/salir"
+        android:drawablePadding="8dp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/red"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp" />
+
+</LinearLayout>

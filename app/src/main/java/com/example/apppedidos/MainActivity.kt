@@ -13,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.apppedidos.frontend.activities.menu.MenuActivity
 import com.example.apppedidos.frontend.activities.menu.MenuCliente
 import com.example.apppedidos.frontend.activities.repartidor.RepartidorListActivity
+import com.example.apppedidos.frontend.activities.rol_restaurante.ListaPedidosRestauranteActivity
 import com.example.apppedidos.frontend.api.ApiClient
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -44,30 +45,36 @@ class MainActivity : AppCompatActivity() {
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val response = ApiClient.instance.verificarUsuario(cedula)
+                Log.d("API_RESPONSE", "Código: ${response.code()}")
+                Log.d("API_RESPONSE", "Mensaje: ${response.message()}")
+                Log.d("API_RESPONSE", "Cuerpo: ${response.body()}")
+
                 withContext(Dispatchers.Main) {
                     if (response.isSuccessful) {
                         val usuario = response.body()
-                        if (usuario != null) {
-                                Toast.makeText(this@MainActivity, "Bienvenido ${usuario.nombre}", Toast.LENGTH_SHORT).show()
+                        if (usuario != null && usuario.estado == "activo") {
+                            Toast.makeText(this@MainActivity, "Bienvenido ${usuario.nombre}", Toast.LENGTH_SHORT).show()
 
-                                val intent = when (usuario.tipo) {
-                                    "admin" -> Intent(this@MainActivity, MenuActivity::class.java)
-                                    "cliente" -> Intent(this@MainActivity, MenuCliente::class.java).apply {
-                                        putExtra("id_usuario", usuario.id_usuario)
-                                    }
-
-                                    else -> {
-                                        Toast.makeText(this@MainActivity, "Tipo no soportado", Toast.LENGTH_SHORT).show()
-                                        return@withContext
-                                    }
+                            val intent = when (usuario.tipo) {
+                                "admin" -> Intent(this@MainActivity, MenuActivity::class.java)
+                                "cliente" -> Intent(this@MainActivity, MenuCliente::class.java)
+                                "restaurante" -> Intent(this@MainActivity, ListaPedidosRestauranteActivity::class.java)
+                                else -> {
+                                    Toast.makeText(this@MainActivity, "Tipo no soportado", Toast.LENGTH_SHORT).show()
+                                    return@withContext
                                 }
-                            Log.d("ID USUARIOS", "ID Usuario: ${usuario.id_usuario.toString()}")
+                            }.apply {
+                                putExtra("nombre", usuario.nombre)
+                                putExtra("id_usuario", usuario.id_usuario)
+                                putExtra("user_type", usuario.tipo)
+                                putExtra("user_origin", usuario.origen ?: "")
+                                Log.d("INTENT_EXTRAS", "Extras enviados: id_usuario=${usuario.id_usuario}, tipo=${usuario.tipo}, origen=${usuario.origen}")
+                            }
 
                             startActivity(intent)
-                                finish()
-
+                            finish()
                         } else {
-                            Toast.makeText(this@MainActivity, "Usuario no encontrado", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@MainActivity, "Usuario no encontrado o suspendido", Toast.LENGTH_SHORT).show()
                         }
                     } else {
                         Toast.makeText(this@MainActivity, "Error: ${response.code()}", Toast.LENGTH_SHORT).show()
@@ -76,6 +83,7 @@ class MainActivity : AppCompatActivity() {
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
                     Toast.makeText(this@MainActivity, "Error de conexión", Toast.LENGTH_SHORT).show()
+                    Log.e("LoginError", "Error al verificar usuario", e)
                 }
             }
         }

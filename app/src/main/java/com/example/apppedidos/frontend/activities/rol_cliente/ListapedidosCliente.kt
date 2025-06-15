@@ -77,7 +77,7 @@ class ListapedidosCliente : AppCompatActivity() {
                                 )
                             }
 
-                            adapter = PedidosClienteAdapter(pedidos)
+                            adapter = PedidosClienteAdapter(pedidos, idCliente)
                             recyclerView.adapter = adapter
                         } else {
                             Toast.makeText(
@@ -95,7 +95,7 @@ class ListapedidosCliente : AppCompatActivity() {
                     }
                 }
             } catch (e: Exception) {
-                withContext(Dispatchers.Main) {  // Y aquí también
+                withContext(Dispatchers.Main) {
                     progressBar.visibility = View.GONE
                     Toast.makeText(
                         this@ListapedidosCliente,

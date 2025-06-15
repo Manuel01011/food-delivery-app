@@ -68,6 +68,9 @@
 
         <activity android:name="com.example.apppedidos.frontend.activities.rol_cliente.ListapedidosCliente"/>
 
+        <activity android:name="com.example.apppedidos.frontend.activities.rol_restaurante.ListaPedidosRestauranteActivity"/>
+
+        <activity android:name="com.example.apppedidos.frontend.activities.rol_restaurante.DetallePedidoRestauranteActivity"/>
 
     </application>
     <uses-permission android:name="android.permission.INTERNET" />

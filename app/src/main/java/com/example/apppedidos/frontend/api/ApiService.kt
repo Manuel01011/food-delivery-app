@@ -1,8 +1,12 @@
 package com.example.apppedidos.frontend.api
 import com.example.apppedidos.frontend.activities.repartidor.RepartidorRegistroRequest
+import com.example.apppedidos.frontend.models.CalificacionRequest
+import com.example.apppedidos.frontend.models.CalificacionResponse
 import com.example.apppedidos.frontend.models.ClientesResponse
 import com.example.apppedidos.frontend.models.ComboRequest
 import com.example.apppedidos.frontend.models.PedidoRequest
+import com.example.apppedidos.frontend.models.PedidoRestaurante
+import com.example.apppedidos.frontend.models.PedidosResponse
 import com.example.apppedidos.frontend.models.Repartidor
 import com.example.apppedidos.frontend.models.Restaurante
 import com.example.apppedidos.frontend.models.RestauranteRequest
@@ -15,6 +19,7 @@ import retrofit2.http.POST
 import retrofit2.Response
 import retrofit2.http.Path
 import retrofit2.Call
+import retrofit2.http.PUT
 import retrofit2.http.Query
 
 interface ApiService {
@@ -60,10 +65,18 @@ interface ApiService {
 
     @GET("pedidos/{id_pedido}/detalle") suspend fun obtenerDetallePedido(@Path("id_pedido") idPedido: Int, @Query("cliente") idCliente: Int): Response<Map<String, Any>>
 
-    @POST("pedidos/calificar") suspend fun calificarPedido(@Body request: Map<String, Any>): Response<Map<String, Any>>
+    @POST("api/pedidos/calificar") suspend fun calificarPedido(@Body request: CalificacionRequest): Response<CalificacionResponse>
 
     //metodos de clientes
     @GET("api/clientes/{id}/pedidos-completos") suspend fun listarPedidosCliente(@Path("id") idCliente: Int, @Query("estado") estado: String? = null): Response<Map<String, Any>>
+
+    // Metodos rol restaurante
+    @GET("api/restaurantes/{id}/pedidos")
+    suspend fun listarPedidosRestaurante(@Path("id") idRestaurante: Int, @Query("estado") estado: String? = null): Response<PedidosResponse>
+
+    @GET("api/restaurantes/{idRestaurante}/pedidos/{idPedido}") suspend fun obtenerDetallePedidoRestaurante(@Path("idRestaurante") idRestaurante: Int, @Path("idPedido") idPedido: Int): Response<Map<String, Any>>
+
+    @PUT("api/restaurantes/{idRestaurante}/pedidos/{idPedido}/estado") suspend fun actualizarEstadoPedido(@Path("idRestaurante") idRestaurante: Int, @Path("idPedido") idPedido: Int, @Body request: Map<String, String>): Response<Map<String, Any>>
 }
 
 

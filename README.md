@@ -1,36 +1,28 @@
 # 🚀 CletaEats - Delivery App (Kotlin)  
 
-**¡Pedidos rápidos, sabrosos y sobre ruedas!**  
+<div align="center">
+  <img src="https://img.freepik.com/vector-gratis/plantilla-logotipo-repartidor-comida_23-2148686840.jpg" width="200">
+  <h2>¡Pedidos rápidos, sabrosos y sobre ruedas! 🍔🚴‍♂️</h2>
+</div>
 
-CletaEats es una aplicación móvil desarrollada en **Kotlin**
-La app ofrece una experiencia fluida para realizar pedidos de combos, gestionar repartidores y generar facturas automatizadas, todo con un diseño moderno y eficiente.  
-La cual consume la api: https://github.com/Manuel01011/Api-_foodDelivery
-
----
-
-## 📱 **Funcionalidades clave**  
-
-### 🍔 **Para Clientes**  
-- **Registro/Login seguro**: Autenticación de usuarios con estado (activo/suspendido).  
-- **Selección de restaurantes**: 7 opciones con tipos de comida (china, rápida, saludable, etc.).  
-- **Pedidos personalizados**: Combos del 1 al 9 (precios desde ₡4000 hasta ₡12000).  
-- **Facturación automática**: Incluye subtotal, IVA (13%), costo de transporte y total.  
-
-### 🚴 **Para Repartidores**  
-- **Gestión de entregas**: Asignación automática (prioriza disponibilidad y amonestaciones < 4).  
-- **Tarifas dinámicas**: ₡1000/km (días hábiles) o ₡1500/km (feriados).  
-- **Registro de quejas**: Trazabilidad de amonestaciones por calificaciones de clientes.  
-
-### 📊 **BackEnd y Persistencia**  
-- **Arquitectura multicapa**: Datos, lógica de negocio, control y modelo.  
-- **Persistencia en MYSQL**: Guarda clientes, restaurantes, repartidores y pedidos.
-- **Reportes empresariales**:  
-  - Restaurantes más/menos populares.    
-  - Montos totales vendidos.  
+CletaEats es una aplicación móvil desarrollada en **Kotlin** que ofrece una experiencia fluida para realizar pedidos de comida. Consume la API: [🔗 Api-FoodDelivery](https://github.com/Manuel01011/Api-_foodDelivery)
 
 ---
 
-## 🛠️ **Tecnologías y Requisitos**  
-- **Lenguaje**: Kotlin (Android Studio).  
-- **FrontEnd**: Jetpack Compose, Navigation Drawer, RecyclerView.  
-- **Patrones de diseño**: MVC o MVVM (según módulo 1 del curso). 
+## 🌟 **Funcionalidades clave**  
+
+### 👨‍🍳 **Experiencia del Cliente**
+| Característica | Icono | Detalle |
+|---------------|-------|---------|
+| **Autenticación** | 🔐 | Registro/Login con validación de estado |
+| **Restaurantes** | 🏪 | 7 categorías (china, rápida, saludable, etc.) |
+| **Combos** | 🍱 | 9 opciones (₡4,000 - ₡12,000) |
+| **Facturación** | 🧾 | Cálculo automático con IVA 13% |
+
+```kotlin
+// Ejemplo cálculo de factura
+fun calcularTotal(subtotal: Double): Double {
+    val iva = 0.13
+    val transporte = 1000 // ₡/km
+    return subtotal + (subtotal * iva) + transporte
+}

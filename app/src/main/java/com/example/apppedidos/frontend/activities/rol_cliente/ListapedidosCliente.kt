@@ -1,6 +1,7 @@
 package com.example.apppedidos.frontend.activities.rol_cliente
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.Toast
@@ -63,7 +64,11 @@ class ListapedidosCliente : AppCompatActivity() {
 
                         if (success) {
                             val pedidosJson = body?.get("pedidos") as? List<Map<String, Any>> ?: emptyList()
+                            Log.d("API_RESPONSE ACA", "Respuesta completa: ${pedidosJson}")
+
                             val pedidos = pedidosJson.map { json ->
+                                val repartidor = json["repartidor"] as? Map<String, Any>
+
                                 PedidoCliente(
                                     id_pedido = (json["id_pedido"] as Number).toInt(),
                                     fecha_pedido = json["fecha_pedido"] as String,
@@ -71,8 +76,8 @@ class ListapedidosCliente : AppCompatActivity() {
                                     total = (json["total"] as Number).toDouble(),
                                     restaurante = json["restaurante"] as String,
                                     tipo_comida = json["tipo_comida"] as String,
-                                    id_repartidor = (json["id_repartidor"] as? Number)?.toInt(),
-                                    nombre_repartidor = json["nombre_repartidor"] as? String,
+                                    id_repartidor = (repartidor?.get("id") as? Number)?.toInt(),
+                                    nombre_repartidor = repartidor?.get("nombre") as? String,
                                     calificado = (json["calificado"] as? Number)?.toInt() == 1
                                 )
                             }

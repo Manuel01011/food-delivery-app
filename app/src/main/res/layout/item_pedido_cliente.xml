@@ -32,6 +32,7 @@
             android:layout_height="wrap_content"
             android:text="Fecha del pedido: 2025-06-14"
             android:layout_marginTop="8dp"
+            android:textStyle="bold"
             android:textColor="?android:textColor"
             android:textSize="14sp" />
 
@@ -42,9 +43,21 @@
             android:layout_height="wrap_content"
             android:text="Estado: Entregado"
             android:layout_marginTop="4dp"
-            android:textColor="@color/primaryDarkColor"
+            android:textColor="@color/red"
             android:textStyle="bold"
             android:textSize="14sp" />
+
+        <!-- Nombre del Repartidor -->
+        <TextView
+            android:id="@+id/tvRepartidor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Repartidor: Juan Pérez"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginTop="4dp"
+            android:visibility="gone" />
 
         <!-- Total del Pedido -->
         <TextView
@@ -53,6 +66,7 @@
             android:layout_height="wrap_content"
             android:text="Total: ₡12,000"
             android:layout_marginTop="4dp"
+            android:textStyle="bold"
             android:textColor="?android:textColor"
             android:textSize="14sp" />
 

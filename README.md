@@ -4,6 +4,7 @@
 
 CletaEats es una aplicación móvil desarrollada en **Kotlin**
 La app ofrece una experiencia fluida para realizar pedidos de combos, gestionar repartidores y generar facturas automatizadas, todo con un diseño moderno y eficiente.  
+La cual consume la api: https://github.com/Manuel01011/Api-_foodDelivery
 
 ---
 

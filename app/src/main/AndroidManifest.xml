@@ -70,7 +70,12 @@
 
         <activity android:name="com.example.apppedidos.frontend.activities.rol_restaurante.ListaPedidosRestauranteActivity"/>
 
-        <activity android:name="com.example.apppedidos.frontend.activities.rol_restaurante.DetallePedidoRestauranteActivity"/>
+        <activity android:name="com.example.apppedidos.frontend.activities.rol_repartidor.ListaPedidosRepartidor"/>
+
+        <activity android:name="com.example.apppedidos.frontend.activities.menu.RestaurantesPopularesActivity"/>
+
+        <activity android:name="com.example.apppedidos.frontend.activities.menu.MenuEstadisticas"
+            android:theme="@style/Base.Theme.AppPedido"/>
 
     </application>
     <uses-permission android:name="android.permission.INTERNET" />

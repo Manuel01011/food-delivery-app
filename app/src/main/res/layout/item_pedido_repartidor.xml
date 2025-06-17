@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardElevation="4dp"
+    app:cardCornerRadius="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Restaurante -->
+        <TextView
+            android:id="@+id/tvRestaurante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/black" />
+
+        <!-- Cliente -->
+        <TextView
+            android:id="@+id/tvCliente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp" />
+
+        <!-- Dirección -->
+        <TextView
+            android:id="@+id/tvDireccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp" />
+
+        <!-- Información adicional -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <!-- Estado -->
+            <TextView
+                android:id="@+id/tvEstado"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/bg_estado_pedido"
+                android:gravity="center"
+                android:padding="4dp"
+                android:textColor="@color/white" />
+
+            <!-- Items -->
+            <TextView
+                android:id="@+id/tvItems"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center" />
+
+            <!-- Ganancia -->
+            <TextView
+                android:id="@+id/tvGanancia"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/green" />
+        </LinearLayout>
+
+        <!-- Botón de acción -->
+        <Button
+            android:id="@+id/btnEntregado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Marcar como Entregado"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@color/white" />
+
+        <!-- Tiempo -->
+        <TextView
+            android:id="@+id/tvTiempo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="end"
+            android:textSize="12sp"
+            android:textColor="@color/gray" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

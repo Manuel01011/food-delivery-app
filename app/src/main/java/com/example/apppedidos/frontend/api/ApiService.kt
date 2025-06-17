@@ -7,6 +7,7 @@ import com.example.apppedidos.frontend.models.ComboRequest
 import com.example.apppedidos.frontend.models.PedidoRequest
 import com.example.apppedidos.frontend.models.PedidoRestaurante
 import com.example.apppedidos.frontend.models.PedidosResponse
+import com.example.apppedidos.frontend.models.PedidosResponseRepartidor
 import com.example.apppedidos.frontend.models.Repartidor
 import com.example.apppedidos.frontend.models.Restaurante
 import com.example.apppedidos.frontend.models.RestauranteRequest
@@ -37,6 +38,10 @@ interface ApiService {
     @POST("api/repartidores/{id}/amonestacion")
     suspend fun asignarAmonestacion(@Path("id") idRepartidor: Int): Response<Map<String, Int>>
 
+    @GET("api/repartidores/{id}/pedidos") suspend fun obtenerPedidosRepartidor(@Path("id") idRepartidor: Int, @Query("estado") estado: String? = null): Response<PedidosResponseRepartidor>
+
+    @PUT("api/pedidos/{idPedido}/estado") suspend fun actualizarEstadoPedidoRepartidor(@Path("idPedido") idPedido: Int, @Body request: Map<String, String>): Response<Map<String, Any>>
+
     // Métodos usuarios
     @POST("/api/usuarios")
     fun registrarUsuario(@Body usuario: Usuario): Call<Map<String, Any>>
@@ -60,6 +65,8 @@ interface ApiService {
     @POST("api/restaurantes/{id}/combos")
     suspend fun registrarCombo(@Path("id") idRestaurante: Int, @Body combo: ComboRequest): Response<Map<String, Any>>
 
+    @GET("api/reportes/restaurantes-populares") suspend fun obtenerRestaurantesPopulares(): Response<Map<String, Any>>
+
     // Métodos de pedidos
     @POST("api/pedidos/completo")   suspend fun crearPedidoCompleto(@Body request: PedidoRequest): Response<Map<String, Any>>
 
@@ -77,6 +84,7 @@ interface ApiService {
     @GET("api/restaurantes/{idRestaurante}/pedidos/{idPedido}") suspend fun obtenerDetallePedidoRestaurante(@Path("idRestaurante") idRestaurante: Int, @Path("idPedido") idPedido: Int): Response<Map<String, Any>>
 
     @PUT("api/restaurantes/{idRestaurante}/pedidos/{idPedido}/estado") suspend fun actualizarEstadoPedido(@Path("idRestaurante") idRestaurante: Int, @Path("idPedido") idPedido: Int, @Body request: Map<String, String>): Response<Map<String, Any>>
+
 }
 
 

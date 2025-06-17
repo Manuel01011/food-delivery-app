@@ -16,7 +16,7 @@
         android:layout_marginTop="50dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Menú Principal"
+        android:text="Menú de Estadísticas"
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_marginBottom="32dp" />
@@ -41,19 +41,19 @@
             android:background="@drawable/button_background_selector"
             android:clickable="true"
             android:focusable="true"
-            android:id="@+id/btnClientes"
+            android:id="@+id/btnPopulares"
             android:padding="8dp">
 
             <ImageView
                 android:layout_width="96dp"
                 android:layout_height="96dp"
-                android:src="@drawable/clientesb"
+                android:src="@drawable/popularidad"
                 android:contentDescription="Clientes" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Clientes"
+                android:text="Restaurantes más populares"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:layout_marginTop="8dp"/>
@@ -69,19 +69,19 @@
             android:background="@drawable/button_background_selector"
             android:clickable="true"
             android:focusable="true"
-            android:id="@+id/btnRepartidores"
+            android:id="@+id/btnVentas"
             android:padding="8dp">
 
             <ImageView
                 android:layout_width="96dp"
                 android:layout_height="96dp"
-                android:src="@drawable/delivery"
+                android:src="@drawable/dinero"
                 android:contentDescription="Repartidores" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Repartidores"
+                android:text="Monto vendido por restaurante"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:layout_marginTop="8dp"/>
@@ -97,19 +97,19 @@
             android:background="@drawable/button_background_selector"
             android:clickable="true"
             android:focusable="true"
-            android:id="@+id/btnRestaurantes"
+            android:id="@+id/btnPedidos"
             android:padding="8dp">
 
             <ImageView
                 android:layout_width="96dp"
                 android:layout_height="96dp"
-                android:src="@drawable/restaurantee"
+                android:src="@drawable/pedidos"
                 android:contentDescription="Restaurantes" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Restaurantes"
+                android:text="Clientes y sus pedidos"
                 android:textColor="@color/textColor"
                 android:textStyle="bold"
                 android:layout_marginTop="8dp"/>
@@ -125,19 +125,19 @@
             android:background="@drawable/button_background_selector"
             android:clickable="true"
             android:focusable="true"
-            android:id="@+id/btnEstadisticas"
+            android:id="@+id/btnCalificaciones"
             android:padding="8dp">
 
             <ImageView
                 android:layout_width="96dp"
                 android:layout_height="96dp"
-                android:src="@drawable/stats"
+                android:src="@drawable/calificacion"
                 android:contentDescription="Estadísticas" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Estadísticas"
+                android:text="Calificaciones"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:layout_marginTop="8dp"/>

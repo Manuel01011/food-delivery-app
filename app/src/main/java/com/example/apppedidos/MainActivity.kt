@@ -13,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.apppedidos.frontend.activities.menu.MenuActivity
 import com.example.apppedidos.frontend.activities.menu.MenuCliente
 import com.example.apppedidos.frontend.activities.repartidor.RepartidorListActivity
+import com.example.apppedidos.frontend.activities.rol_repartidor.ListaPedidosRepartidor
 import com.example.apppedidos.frontend.activities.rol_restaurante.ListaPedidosRestauranteActivity
 import com.example.apppedidos.frontend.api.ApiClient
 import kotlinx.coroutines.CoroutineScope
@@ -52,13 +53,14 @@ class MainActivity : AppCompatActivity() {
                 withContext(Dispatchers.Main) {
                     if (response.isSuccessful) {
                         val usuario = response.body()
-                        if (usuario != null && usuario.estado == "activo") {
+                        if (usuario != null) {
                             Toast.makeText(this@MainActivity, "Bienvenido ${usuario.nombre}", Toast.LENGTH_SHORT).show()
 
                             val intent = when (usuario.tipo) {
                                 "admin" -> Intent(this@MainActivity, MenuActivity::class.java)
                                 "cliente" -> Intent(this@MainActivity, MenuCliente::class.java)
                                 "restaurante" -> Intent(this@MainActivity, ListaPedidosRestauranteActivity::class.java)
+                                "repartidor" -> Intent(this@MainActivity, ListaPedidosRepartidor::class.java)
                                 else -> {
                                     Toast.makeText(this@MainActivity, "Tipo no soportado", Toast.LENGTH_SHORT).show()
                                     return@withContext

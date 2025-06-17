@@ -72,7 +72,13 @@
 
         <activity android:name="com.example.apppedidos.frontend.activities.rol_repartidor.ListaPedidosRepartidor"/>
 
-        <activity android:name="com.example.apppedidos.frontend.activities.menu.RestaurantesPopularesActivity"/>
+        <activity android:name="com.example.apppedidos.frontend.activities.estadisticas.RestaurantesPopularesActivity"/>
+
+        <activity android:name="com.example.apppedidos.frontend.activities.estadisticas.RestaurantesVentasActivity"/>
+
+        <activity android:name="com.example.apppedidos.frontend.activities.estadisticas.CalificacionesRepartidores"/>
+
+        <activity android:name="com.example.apppedidos.frontend.activities.estadisticas.ClientesYpedidos"/>
 
         <activity android:name="com.example.apppedidos.frontend.activities.menu.MenuEstadisticas"
             android:theme="@style/Base.Theme.AppPedido"/>

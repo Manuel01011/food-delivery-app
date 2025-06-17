@@ -4,8 +4,11 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
-import com.example.apppedidos.MainActivity
 import com.example.apppedidos.R
+import com.example.apppedidos.frontend.activities.estadisticas.CalificacionesRepartidores
+import com.example.apppedidos.frontend.activities.estadisticas.ClientesYpedidos
+import com.example.apppedidos.frontend.activities.estadisticas.RestaurantesPopularesActivity
+import com.example.apppedidos.frontend.activities.estadisticas.RestaurantesVentasActivity
 
 class MenuEstadisticas: AppCompatActivity() {
 
@@ -26,6 +29,14 @@ class MenuEstadisticas: AppCompatActivity() {
         btnPopulares.setOnClickListener {
             startActivity(Intent(this, RestaurantesPopularesActivity::class.java))
         }
-
+        btnVentas.setOnClickListener() {
+            startActivity(Intent(this, RestaurantesVentasActivity::class.java))
+        }
+        btnCalificaciones.setOnClickListener() {
+            startActivity(Intent(this, CalificacionesRepartidores::class.java))
+        }
+        btnPedidos.setOnClickListener() {
+            startActivity(Intent(this, ClientesYpedidos::class.java))
+        }
     }
 }

@@ -20,15 +20,16 @@
             android:id="@+id/tvRanking"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:background="@drawable/ranking_circle"
+            android:background="@drawable/ranking_circleblue"
             android:gravity="center"
+            android:text="1"
             android:textColor="@android:color/white"
             android:textSize="16sp"
             android:textStyle="bold"
             android:layout_gravity="center_vertical"
             android:layout_marginEnd="16dp" />
 
-        <!-- Información del restaurante -->
+        <!-- Información del repartidor -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -36,28 +37,44 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tvNombreRestaurante"
+                android:id="@+id/tvNombreRepartidor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="Nombre Repartidor"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="#000000" />
 
             <TextView
-                android:id="@+id/tvTipoComida"
+                android:id="@+id/tvPuntaje"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+                android:textStyle="bold"
+                android:background="@drawable/calificacionn"
+                android:text="Puntaje: 5"
+                android:textSize="14sp"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/tvComentario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textStyle="bold"
+                android:text="Comentario del cliente"
                 android:textSize="14sp"
                 android:textColor="#666666" />
 
             <TextView
-                android:id="@+id/tvTotalPedidos"
+                android:id="@+id/tvQueja"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+                android:textStyle="bold"
+                android:text="Sin queja"
                 android:textSize="14sp"
-                android:textColor="#444444" />
+                android:textColor="#3F51B5" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

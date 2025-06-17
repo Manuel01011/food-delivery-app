@@ -1,4 +1,4 @@
-package com.example.apppedidos.frontend.activities.menu
+package com.example.apppedidos.frontend.activities.estadisticas
 
 import android.os.Bundle
 import android.util.Log

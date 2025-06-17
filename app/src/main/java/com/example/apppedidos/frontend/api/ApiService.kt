@@ -2,6 +2,7 @@ package com.example.apppedidos.frontend.api
 import com.example.apppedidos.frontend.activities.repartidor.RepartidorRegistroRequest
 import com.example.apppedidos.frontend.models.CalificacionRequest
 import com.example.apppedidos.frontend.models.CalificacionResponse
+import com.example.apppedidos.frontend.models.CalificacionesRepartidoresResponse
 import com.example.apppedidos.frontend.models.ClientesResponse
 import com.example.apppedidos.frontend.models.ComboRequest
 import com.example.apppedidos.frontend.models.PedidoRequest
@@ -9,6 +10,7 @@ import com.example.apppedidos.frontend.models.PedidoRestaurante
 import com.example.apppedidos.frontend.models.PedidosResponse
 import com.example.apppedidos.frontend.models.PedidosResponseRepartidor
 import com.example.apppedidos.frontend.models.Repartidor
+import com.example.apppedidos.frontend.models.ReporteVentasResponse
 import com.example.apppedidos.frontend.models.Restaurante
 import com.example.apppedidos.frontend.models.RestauranteRequest
 import com.example.apppedidos.frontend.models.RestaurantesResponse
@@ -52,6 +54,8 @@ interface ApiService {
     @GET("api/usuarios/{cedula}")
     suspend fun verificarUsuario(@Path("cedula") cedula: String): Response<UsuarioLogin>
 
+    @GET("api/reportes/clientes-pedidos") suspend fun obtenerClientesYPedidos(): Response<Map<String, Any>>
+
     // Metodos de restaurante
     @GET("api/Restaurantes")
     suspend fun obtenerRestaurantes(): Response<RestaurantesResponse>
@@ -66,6 +70,8 @@ interface ApiService {
     suspend fun registrarCombo(@Path("id") idRestaurante: Int, @Body combo: ComboRequest): Response<Map<String, Any>>
 
     @GET("api/reportes/restaurantes-populares") suspend fun obtenerRestaurantesPopulares(): Response<Map<String, Any>>
+
+    @GET("api/reportes/ventas-restaurantes")  suspend fun obtenerReporteVentasRestaurantes(): Response<ReporteVentasResponse>
 
     // Métodos de pedidos
     @POST("api/pedidos/completo")   suspend fun crearPedidoCompleto(@Body request: PedidoRequest): Response<Map<String, Any>>
@@ -85,6 +91,8 @@ interface ApiService {
 
     @PUT("api/restaurantes/{idRestaurante}/pedidos/{idPedido}/estado") suspend fun actualizarEstadoPedido(@Path("idRestaurante") idRestaurante: Int, @Path("idPedido") idPedido: Int, @Body request: Map<String, String>): Response<Map<String, Any>>
 
+    // Métodos de calificaciones
+    @GET("api/reportes/calificaciones-repartidores") suspend fun obtenerCalificacionesRepartidores(): Response<CalificacionesRepartidoresResponse>
 }
 
 

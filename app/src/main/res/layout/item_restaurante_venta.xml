@@ -7,33 +7,35 @@
     android:layout_margin="8dp"
     app:cardElevation="6dp"
     app:cardCornerRadius="12dp"
-    app:cardBackgroundColor="#FFFFFF">
+    app:cardBackgroundColor="#FFFFFF"
+    android:foreground="?attr/selectableItemBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:gravity="center_vertical">
 
-        <!-- Número de ranking -->
+        <!-- Círculo vacío para un ícono, ranking o número (puedes usarlo para icono ventas) -->
         <TextView
-            android:id="@+id/tvRanking"
+            android:id="@+id/tvIconoVentas"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:background="@drawable/ranking_circle"
+            android:background="@drawable/circle_background"
             android:gravity="center"
+            android:text="₡"
             android:textColor="@android:color/white"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:textStyle="bold"
-            android:layout_gravity="center_vertical"
             android:layout_marginEnd="16dp" />
 
-        <!-- Información del restaurante -->
+        <!-- Información del restaurante y ventas -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_weight="1">
 
             <TextView
                 android:id="@+id/tvNombreRestaurante"
@@ -44,20 +46,12 @@
                 android:textColor="#000000" />
 
             <TextView
-                android:id="@+id/tvTipoComida"
+                android:id="@+id/tvVentasRestaurante"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
                 android:textSize="14sp"
-                android:textColor="#666666" />
-
-            <TextView
-                android:id="@+id/tvTotalPedidos"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:textSize="14sp"
-                android:textColor="#444444" />
+                android:textColor="#444444"
+                android:layout_marginTop="4dp" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

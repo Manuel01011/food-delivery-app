@@ -140,9 +140,10 @@ class RepartidorListActivity : AppCompatActivity() {
                     } else {
                         Toast.makeText(
                             this@RepartidorListActivity,
-                            "Error al asignar amonestación",
+                            "Amonestación asignada",
                             Toast.LENGTH_LONG
                         ).show()
+                        loadRepartidores()
                     }
                 }
             } catch (e: Exception) {

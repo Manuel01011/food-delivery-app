@@ -34,6 +34,7 @@ class ListaRestaurantesActivity : AppCompatActivity() {
         fabAddRestaurante.setOnClickListener {
             val intent = Intent(this, RegistroRestauranteActivity::class.java)
             startActivity(intent)
+
         }
 
         btnSalir.setOnClickListener() {
@@ -42,6 +43,15 @@ class ListaRestaurantesActivity : AppCompatActivity() {
 
         recycler.layoutManager = LinearLayoutManager(this)
 
+        cargarRestaurantes()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        cargarRestaurantes()
+    }
+
+    private fun cargarRestaurantes() {
         GlobalScope.launch(Dispatchers.Main) {
             try {
                 val response = ApiClient.instance.obtenerRestaurantes()
@@ -60,6 +70,5 @@ class ListaRestaurantesActivity : AppCompatActivity() {
                 Toast.makeText(this@ListaRestaurantesActivity, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
             }
         }
-
     }
 }
